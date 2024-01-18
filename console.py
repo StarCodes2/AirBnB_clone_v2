@@ -135,10 +135,10 @@ class HBNBCommand(cmd.Cmd):
         if len(new_list) > 1:
             for param in new_list[1:]:
                 try:
-                    param = param.replace("_", " ")
                     param = param.replace('"', "")
                     name = param[0:param.find("=")]
                     value = param[param.find("=") + 1:]
+                    value = value.replace("_", " ")
                     if self.is_numeric(value):
                         new_instance.__dict__[name] = eval(value)
                     else:
@@ -211,7 +211,7 @@ class HBNBCommand(cmd.Cmd):
         key = c_name + "." + c_id
 
         try:
-            del(storage.all()[key])
+            del (storage.all()[key])
             storage.save()
         except KeyError:
             print("** no instance found **")
