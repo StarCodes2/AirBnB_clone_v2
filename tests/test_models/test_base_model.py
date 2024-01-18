@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" """
+"""Defines the test class BaseModel."""
 from models.base_model import BaseModel
 import unittest
 import datetime
@@ -9,22 +9,23 @@ import os
 
 
 class test_basemodel(unittest.TestCase):
-    """ """
+    """Defines test methods to test the base class."""
 
     def __init__(self, *args, **kwargs):
-        """ """
+        """Initialise the test class."""
         super().__init__(*args, **kwargs)
         self.name = 'BaseModel'
         self.value = BaseModel
 
     def setUp(self):
-        """ """
+        """Defines the operations to carry out before running each test."""
         pass
 
     def tearDown(self):
+        """Defines the operations to be carried out after each test."""
         try:
             os.remove('file.json')
-        except:
+        except Exception:
             pass
 
     def test_default(self):
