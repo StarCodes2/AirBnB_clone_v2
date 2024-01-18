@@ -1,0 +1,5 @@
+# File storage
+*.json
+
+# python cache
+__pycache__
