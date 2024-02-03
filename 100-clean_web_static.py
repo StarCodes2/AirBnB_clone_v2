@@ -18,7 +18,7 @@ def do_clean(number=0):
 
     archives = sorted(listdir("versions"))
     for i in range(number):
-        arch.pop()
+        archives.pop()
 
     with lcd("versions"):
         for archive in archives:
