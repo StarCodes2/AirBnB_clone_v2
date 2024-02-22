@@ -1,4 +1,4 @@
-#!/usr/bi/npython3
+#!/usr/bin/python3
 """ Starts a Flask Web Application that listens on 0.0.0.0, port 5000. """
 from flask import Flask
 
