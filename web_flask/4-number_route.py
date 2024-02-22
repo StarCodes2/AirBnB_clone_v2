@@ -30,5 +30,11 @@ def python_text(text="is cool"):
     return "Python {}".format(text.replace("_", " "))
 
 
+@app.route("/number/<int:n>", strict_slashes=False)
+def number(n):
+    """ Displays the content of n if it's an integer. """
+    return "{} is a number".format(n)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
