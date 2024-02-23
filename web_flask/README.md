@@ -6,4 +6,5 @@
 - **2-c_route.py:** Flask application with three url one of which takes a string variable
 - **3-python_route.py:** Flask application with four url with redirection
 - **4-number_route.py:** Flask application with five url using variable rule
-- **5-number_template.py:** Launches a flask that renders data in a jinja template
+- **5-number_template.py:** Launches a flask app that renders data in a jinja template
+- **6-number_odd_or_even.py:** Launches a flask app that renders data in a jinja template
