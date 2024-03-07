@@ -10,7 +10,7 @@ from fabric.api import run
 
 env.hosts = ["54.88.33.51", "100.26.50.21"]
 env.user = "ubuntu"
-file_url = None
+env.archive_path = None
 
 
 def do_pack():
@@ -65,9 +65,9 @@ def do_deploy(archive_path):
 def deploy():
     """ Creates and distributes an archive to your web servers, using the
     function deploy. """
-    if file_url is None:
-        file_url = do_pack()
-    if file_url is not None:
-        return do_deploy(file_url)
+    if env.archive_path is None:
+        env.archive_path = do_pack()
+    if env.archive_path is not None:
+        return do_deploy(env.archive_path)
 
     return false
