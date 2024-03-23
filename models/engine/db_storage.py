@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """ Defines the DBStorage engine using SQLAlchemy. """
-from os import getenv
-from models.base_model import Base, BaseModel
 from models.amenity import Amenity
+from models.base_model import Base, BaseModel
 from models.city import City
 from models.place import Place
 from models.review import Review
 from models.state import State
 from models.user import User
+from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import scoped_session
@@ -25,13 +25,13 @@ class DBStorage:
 
     def __init__(self):
         """ Initialize a new DBStorage instance. """
-        self.__engine = create_engine("mysqldb://{}:{}@{}/{}".
+        self.__engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".
                                       format(getenv("HBNB_MYSQL_USER"),
                                              getenv("HBNB_MYSQL_PWD"),
                                              getenv("HBNB_MYSQL_HOST"),
                                              getenv("HBNB_MYSQL_DB")),
                                       pool_pre_ping=True)
-        if getenv("HBNB_ENV") == "test":
+        if getenv('HBNB_ENV') == "test":
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
