@@ -5,7 +5,7 @@ from sqlalchemy import Column, ForeignKey, String
 from sqlalchemy.orm import relationship
 
 
-class City(BaseModel):
+class City(BaseModel, Base):
     """ The city class, contains state ID and name
         Inherits from SQLAlchemy Base and links to the MySQL table cities.
 
@@ -14,6 +14,7 @@ class City(BaseModel):
             state_id (sqlalchemy String): State_id of the city.
             name (sqlalchemy String): Name of the city
     """
-    state_id = Column(String(128), nullable=False)
-    name = Column(String(60), ForeignKey("state.id"), nullable=False)
+    __tablename__ = "cities"
+    name = Column(String(128), nullable=False)
+    state_id = Column(String(60), ForeignKey("states.id"), nullable=False)
     places = relationship("Place", backref="cities", cascade="delete")
