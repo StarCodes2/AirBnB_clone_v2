@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 """This module defines a class to manage file storage for hbnb clone"""
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 import json
 
 
@@ -13,12 +19,14 @@ class FileStorage:
         objs = FileStorage.__objects
         if cls is None:
             return objs
+        if type(cls) is str:
+            cls = eval(cls)
         cls_objs = {key: obj for key, obj in objs.items() if type(obj) is cls}
         return cls_objs
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
-        self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
+        type(self).__objects.update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
 
     def save(self):
         """Saves storage dictionary to file"""
