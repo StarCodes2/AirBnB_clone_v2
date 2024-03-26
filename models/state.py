@@ -28,7 +28,7 @@ class State(BaseModel, Base):
         def cities(self):
             """ Returns a list of all related City obects. """
             city_list = []
-            for city in list(models.storage.all(city).values()):
+            for city in list(models.storage.all(City).values()):
                 if city.state_id == self.id:
                     city_list.append(city)
             return city_list
