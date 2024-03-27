@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
+import models
 from os import getenv
 from models.base_model import Base
 from models.base_model import BaseModel
@@ -22,8 +23,6 @@ class State(BaseModel, Base):
     cities = relationship("City", backref="state", cascade="delete")
 
     if getenv("HBNB_TYPE_STORAGE") != "db":
-        import models
-
         @property
         def cities(self):
             """ Returns a list of all related City obects. """
