@@ -8,7 +8,7 @@ from fabric.api import env
 from fabric.api import put
 from fabric.api import run
 
-env.hosts = ["54.88.33.51", "100.26.50.21"]
+env.hosts = ["34.202.234.78", "107.23.105.205"]
 env.archive_path = None
 
 
